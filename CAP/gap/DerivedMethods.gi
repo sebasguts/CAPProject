@@ -2909,6 +2909,21 @@ AddFinalDerivationBundle( "IsomorphismFromImageObjectToKernelOfCokernel as the i
 
 ##
 AddDerivationToCAP( MorphismFromCoimageToImageWithGivenObjects,
+                    "MorphismFromCoimageToImageWithGivenObjects using that the image embedding lifts the coimage astriction",
+                    [ [ ImageEmbeddingWithGivenImageObject, 1 ],
+                      [ AstrictionToCoimageWithGivenCoimageObject, 1 ],
+                      [ LiftAlongMonomorphism, 1 ] ],
+                    
+  function( cat, coimage, morphism, image )
+    
+    return LiftAlongMonomorphism( cat,
+                   ImageEmbeddingWithGivenImageObject( cat, morphism, image ),
+                   AstrictionToCoimageWithGivenCoimageObject( cat, morphism, coimage ) );
+    
+end );
+
+##
+AddDerivationToCAP( MorphismFromCoimageToImageWithGivenObjects,
                     "MorphismFromCoimageToImageWithGivenObjects using that images are given by kernels of cokernels",
                     [ [ CokernelProjection, 1 ],
                       [ KernelLift, 1 ],

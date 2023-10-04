@@ -2108,16 +2108,13 @@ end
         
 ########
 function ( cat_1, C_1, alpha_1, I_1 )
-    local morphism_attr_1_1, deduped_2_1, deduped_3_1, deduped_4_1;
-    deduped_4_1 := UnderlyingRing( cat_1 );
-    deduped_3_1 := UnderlyingMatrix( alpha_1 );
-    deduped_2_1 := SyzygiesOfRows( SyzygiesOfColumns( deduped_3_1 ) );
-    morphism_attr_1_1 := UniqueRightDivide( HomalgIdentityMatrix( RowRankOfMatrix( deduped_3_1 ), deduped_4_1 ), UniqueRightDivide( UniqueLeftDivide( BasisOfColumns( deduped_3_1 ), deduped_3_1 ), deduped_2_1 ) * UniqueRightDivide( HomalgIdentityMatrix( NumberRows( deduped_2_1 ), deduped_4_1 ), UniqueRightDivide( BasisOfRows( deduped_3_1 ), deduped_2_1 ) ) );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, CreateCapCategoryObjectWithAttributes( cat_1, Dimension, NumberRows( morphism_attr_1_1 ) ), C_1, UnderlyingMatrix, morphism_attr_1_1 );
+    local deduped_1_1;
+    deduped_1_1 := UnderlyingMatrix( alpha_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, I_1, C_1, UnderlyingMatrix, UniqueRightDivide( HomalgIdentityMatrix( Dimension( I_1 ), UnderlyingRing( cat_1 ) ), UniqueRightDivide( UniqueLeftDivide( BasisOfColumns( deduped_1_1 ), deduped_1_1 ), BasisOfRows( deduped_1_1 ) ) ) );
 end
 ########
         
-    , 1610 : IsPrecompiledDerivation := true );
+    , 604 : IsPrecompiledDerivation := true );
     
     ##
     AddIsAutomorphism( cat,
@@ -4039,15 +4036,13 @@ end
         
 ########
 function ( cat_1, C_1, alpha_1, I_1 )
-    local morphism_attr_1_1, deduped_2_1, deduped_3_1;
-    deduped_3_1 := UnderlyingMatrix( alpha_1 );
-    deduped_2_1 := SyzygiesOfRows( SyzygiesOfColumns( deduped_3_1 ) );
-    morphism_attr_1_1 := UniqueRightDivide( UniqueLeftDivide( BasisOfColumns( deduped_3_1 ), deduped_3_1 ), deduped_2_1 ) * UniqueRightDivide( HomalgIdentityMatrix( NumberRows( deduped_2_1 ), UnderlyingRing( cat_1 ) ), UniqueRightDivide( BasisOfRows( deduped_3_1 ), deduped_2_1 ) );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, C_1, CreateCapCategoryObjectWithAttributes( cat_1, Dimension, NumberColumns( morphism_attr_1_1 ) ), UnderlyingMatrix, morphism_attr_1_1 );
+    local deduped_1_1;
+    deduped_1_1 := UnderlyingMatrix( alpha_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, C_1, I_1, UnderlyingMatrix, UniqueRightDivide( UniqueLeftDivide( BasisOfColumns( deduped_1_1 ), deduped_1_1 ), BasisOfRows( deduped_1_1 ) ) );
 end
 ########
         
-    , 1408 : IsPrecompiledDerivation := true );
+    , 402 : IsPrecompiledDerivation := true );
     
     ##
     AddMorphismFromEqualizerToSink( cat,
