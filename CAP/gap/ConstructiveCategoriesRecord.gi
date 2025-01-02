@@ -119,6 +119,7 @@ CAP_INTERNAL_CONSTRUCTIVE_CATEGORIES_RECORD.IsPreAbelianCategory := Concatenatio
         "CokernelObject",
         "CokernelProjection",
         "CokernelColift",
+        "MorphismFromCoimageToImage",
     ]
 );
 
@@ -127,6 +128,7 @@ CAP_INTERNAL_CONSTRUCTIVE_CATEGORIES_RECORD.IsAbelianCategory := Concatenation(
     [
         "LiftAlongMonomorphism",
         "ColiftAlongEpimorphism",
+        "InverseOfMorphismFromCoimageToImage",
     ]
 );
 
